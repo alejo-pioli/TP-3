@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
-import '../styles/App.css'
 import SearchBar from '../components/SearchBar'
 import SearchResults from '../components/SearchResults'
+import { Link } from 'react-router-dom'
 
-function App() {
-  const CLIENT_ID = ""
-  const CLIENT_SECRET = ""
+export default function App() {
+  const CLIENT_ID = localStorage.getItem("id") || ""
+  const CLIENT_SECRET = localStorage.getItem("secret") || ""
 
   const [artists, setArtists] = useState([])
   const [isLoading, setIslLoading] = useState(false);
@@ -49,11 +49,10 @@ function App() {
 
   return (
     <div>
+      <Link to={"/login"}>Registrarse</Link>
       <h1>Hello world</h1>
       <SearchBar searchArtist={searchArtist} isLoading={isLoading}></SearchBar>
       <SearchResults artists={artists}></SearchResults>
     </div>
   )
 }
-
-export default App
