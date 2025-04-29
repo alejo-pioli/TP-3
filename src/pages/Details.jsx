@@ -2,15 +2,16 @@ import axios from "axios"
 import { useEffect } from "react"
 import { Link, useParams } from "react-router-dom"
 import { useState } from "react"
-import SearchResults from "../components/SearchResults"
+import AlbumResults from "../components/AlbumResults"
+import notFound from "../assets/notfound.png"
 
 export default function Details() {
     const { id } = useParams()
 
+    const [name, setName] = useState("Artist")
+    const [image, setImage] = useState(notFound)
     const [albums, setAlbums] = useState([])
-    const [next, setNext] = useState("")
 
-    //const id = "7oPftvlwr6VrsViSDV7fJY"
     const url = `https://api.spotify.com/v1/artists/${id}/albums`
 
     const CLIENT_ID = localStorage.getItem("id") || ""
@@ -36,6 +37,19 @@ export default function Details() {
             })
     }
 
+    function getArtist(id) {
+        const url = `https://api.spotify.com/v1/artists/${id}`
+
+        axios.get(url)
+            .then((data) => {
+                setName(data.data.name)
+                setImage(data.data.images[0].url)
+            })
+            .catch((error) => {
+                console.log(error)
+            })
+    }
+
     function getDetails(url, albumsPar) {
         axios.get(url)
             .then((data) => {
@@ -49,7 +63,7 @@ export default function Details() {
                         if (item.album_type == "album") {
                             albumsTemp = albumsTemp.concat(item)
                         }
-                        
+
                     })
                     getDetails(next, albumsTemp)
                 }
@@ -63,12 +77,15 @@ export default function Details() {
     }
 
     useEffect(() => {
+        getArtist(id)
         getDetails(url, [])
     }, [])
 
     return (
         <div>
-            <h1>Hi</h1>
+            <img width="300px" src={image}></img>
+            <h1>{name}</h1>
+            <AlbumResults albums={albums}></AlbumResults>
         </div>
     )
 }

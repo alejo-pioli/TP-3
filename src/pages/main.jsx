@@ -5,11 +5,13 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import App from './App'
 import Login from './Login'
 import Details from './Details'
+import Album from './Album'
 
 const router = createBrowserRouter([
   {path:"/", element:<App />},
   {path:"/login", element:<Login />},
   {path:"/details/:id", element: <Details />},
+  {path:"/album", element: <Album />},
 ])
 
 createRoot(document.getElementById('root')).render(

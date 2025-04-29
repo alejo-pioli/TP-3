@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
+import notFound from "../assets/notfound.png"
 
 export default function SearchResultItem({ artist }) {
-    let url = "src/assets/notfound.png"
+    let url = notFound
     try {
         url = artist.images[0].url
     }
