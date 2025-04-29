@@ -44,7 +44,7 @@ export default function App() {
 
   useEffect(() => {
     requestToken()
-  })
+  }, [])
 
 
   return (
