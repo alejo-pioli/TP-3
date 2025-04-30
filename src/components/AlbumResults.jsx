@@ -1,7 +1,7 @@
 import AlbumResultItem from "./AlbumResultItem"
 
 
-export default function AlbumResults({ albums }) {
+export default function AlbumResults({ albums, id }) {
     return (
         <div>
             {albums ?
@@ -9,7 +9,7 @@ export default function AlbumResults({ albums }) {
                     <div>No results found</div> :
                     <ul>
                         {albums.map((album) => {
-                            return <AlbumResultItem album={album} key={album.id}></AlbumResultItem>
+                            return <AlbumResultItem album={album} key={album.id} id={id}></AlbumResultItem>
                         })}
                     </ul>
                 : <></>
