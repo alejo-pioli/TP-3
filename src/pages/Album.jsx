@@ -17,7 +17,7 @@ export default function Album() {
     const CLIENT_SECRET = localStorage.getItem("secret") || ""
 
     function requestToken() {
-        axios.post("https://accounts.spotify.com/api/token",
+        return axios.post("https://accounts.spotify.com/api/token",
             {
                 grant_type: "client_credentials",
                 client_id: CLIENT_ID,
@@ -75,8 +75,17 @@ export default function Album() {
     }
 
     useEffect(() => {
-        getData(album)
-    }, [])
+        const fetchData = async () => {
+            if (!axios.defaults.headers.common['Authorization']) {
+                await requestToken();
+            }
+
+            getData(album)
+        };
+
+        fetchData();
+    }, [album]);
+
 
     return (
         <div>

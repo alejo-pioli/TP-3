@@ -18,7 +18,7 @@ export default function Details() {
     const CLIENT_SECRET = localStorage.getItem("secret") || ""
 
     function requestToken() {
-        axios.post("https://accounts.spotify.com/api/token",
+        return axios.post("https://accounts.spotify.com/api/token",
             {
                 grant_type: "client_credentials",
                 client_id: CLIENT_ID,
@@ -30,7 +30,6 @@ export default function Details() {
                 },
             }).then((data) => {
                 axios.defaults.headers.common['Authorization'] = "Bearer " + data.data.access_token
-
             }).catch((error) => {
                 console.log(`Error: ${error}`)
                 console.log(error)
@@ -77,9 +76,18 @@ export default function Details() {
     }
 
     useEffect(() => {
-        getArtist(id)
-        getDetails(url, [])
-    }, [])
+        const fetchData = async () => {
+            if (!axios.defaults.headers.common['Authorization']) {
+                await requestToken();
+            }
+
+            getArtist(id);
+            getDetails(url, []);
+        };
+
+        fetchData();
+    }, [id, url]);
+
 
     return (
         <div>
