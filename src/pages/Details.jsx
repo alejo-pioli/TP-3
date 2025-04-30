@@ -91,6 +91,7 @@ export default function Details() {
 
     return (
         <div>
+            <Link to={"/"}>← Volver</Link>
             <img width="300px" src={image}></img>
             <h1>{name}</h1>
             <AlbumResults albums={albums} id={id}></AlbumResults>

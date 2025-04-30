@@ -89,6 +89,7 @@ export default function Album() {
 
     return (
         <div>
+            <Link to={`/details/${id}`}>← Volver</Link>
             <img width="250px" src={image}></img>
             <h1>{name}</h1>
             <h2>{year}</h2>
