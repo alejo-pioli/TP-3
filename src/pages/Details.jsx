@@ -53,7 +53,7 @@ export default function Details() {
     function getDetails(url, albumsPar) {
         axios.get(url)
             .then((data) => {
-                //console.log(data.data.items)
+                //console.log(data.data)
                 const next = data.data.next
 
                 if (data.data.items[0].album_type === "album") {
@@ -65,7 +65,12 @@ export default function Details() {
                         }
 
                     })
-                    getDetails(next, albumsTemp)
+                    if (next) {
+                        getDetails(next, albumsTemp)
+                    }
+                    else {
+                        setAlbums(albumsTemp)
+                    }
                 }
                 else {
                     setAlbums(albumsPar)
@@ -97,7 +102,9 @@ export default function Details() {
             </svg>Volver</Link>
             <div className="artist-details">
                 <img src={image}></img>
-                <h1>{name}</h1>
+                <div>
+                <h1 className="title">{name}</h1>
+                </div>
             </div>
             <AlbumResults albums={albums} id={id}></AlbumResults>
         </div>

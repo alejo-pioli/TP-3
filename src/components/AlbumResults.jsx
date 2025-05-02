@@ -7,7 +7,7 @@ export default function AlbumResults({ albums, id }) {
             {albums ?
                 albums.length === 0 ?
                     <div>No results found</div> :
-                    <ul>
+                    <ul id="albums-container">
                         {albums.map((album) => {
                             return <AlbumResultItem album={album} key={album.id} id={id}></AlbumResultItem>
                         })}

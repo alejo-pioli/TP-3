@@ -22,8 +22,12 @@ export default function SongResultItem({ song, index }) {
     }, [])
 
     return (
-            <li key={song.id}>
-                {index + 1}. {song.name}, {minutes}:{seconds}
+            <li key={song.id} className="song">
+                <div class="left-song">
+                    <h3 className="position">{index + 1}</h3>
+                    <h2>{song.name}</h2>
+                </div>
+                <h3 className="length">{minutes}:{seconds}</h3>
             </li>
     )
 }
