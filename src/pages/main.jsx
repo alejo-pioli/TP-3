@@ -1,6 +1,6 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import '../styles/App.css'
+import '../styles/common.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import App from './App'
 import Login from './Login'

@@ -12,8 +12,8 @@ export default function SearchResultItem({ artist }) {
 
     return (
         <Link to={`/details/${artist.id}`}>
-            <li key={artist.id}>
-                <img width="100px" height="100px" src={url}></img>
+            <li key={artist.id} className="artist">
+                <img src={url}></img>
                 {artist.name}
             </li>
         </Link>

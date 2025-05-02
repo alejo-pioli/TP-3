@@ -4,9 +4,11 @@ export default function SearchBar({searchArtist, isLoading}) {
     const [searchTerm, setSearchTerm] = useState("");
 
     return(
-        <form onSubmit={(e) => {e.preventDefault(); searchArtist(searchTerm);}}>
+        <form  className="search-bar" onSubmit={(e) => {e.preventDefault(); searchArtist(searchTerm);}}>
             <input autoFocus onChange={(e) => setSearchTerm(e.target.value)}/>
-            <button disabled={searchTerm.length < 3 || isLoading}>Buscar</button>
+            <button disabled={searchTerm.length < 3 || isLoading}>Buscar<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+</svg></button>
         </form>
     )
 }

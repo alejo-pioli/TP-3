@@ -1,0 +1,15 @@
+.artist-details {
+    text-align: center;
+}
+
+.artist-details img {
+    height: 30vh;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+}
+
+.artist-details h1 {
+    text-align: center;
+    align-items: center;
+    vertical-align: top;
+}
