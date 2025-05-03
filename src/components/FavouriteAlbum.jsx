@@ -23,7 +23,6 @@ export default function FavouriteAlbum({ album }) {
   };
 
   return (
-    /*
     <div className="album-card">
       <img src={album.images[0]?.url} alt={album.name} width="150" />
       <h4>{album.name}</h4>
@@ -31,7 +30,6 @@ export default function FavouriteAlbum({ album }) {
         {isFavorite ? '★ Quitar de Favoritos' : '☆ Agregar a Favoritos'}
       </button>
     </div>
-    */
   );
 }
 
