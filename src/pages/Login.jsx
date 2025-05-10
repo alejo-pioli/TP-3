@@ -23,7 +23,7 @@ export default function Login() {
                 <input type="text" id="id" name="id"></input>
                 <label for="secret" className="not-selectable">SECRET</label>
                 <input type="text" id="secret" name="secret"></input>
-                <button type="submit">Guardar</button>
+                <button type="submit" className="button-text">Guardar</button>
             </form>
         </div>
     )

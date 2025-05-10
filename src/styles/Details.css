@@ -1,3 +1,8 @@
+.details-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
 .artist-details {
     text-align: center;
     align-items: center;
@@ -31,6 +36,7 @@
     color: var(--color-secondary);
     font-weight: 800;
     word-break: break-word;
+    line-height: 1.4em;
 }
 
 .album:hover {
@@ -50,4 +56,5 @@
     font-weight: 65 0;
     color: var(--color-fourth);
     margin-top: -2px;
+    line-height: 2em;
 }

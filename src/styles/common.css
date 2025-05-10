@@ -82,8 +82,8 @@ h1 {
     font-size: 0;
     font-weight: 800;
     font-family: inherit;
-    background-color: var(--color-primary);
     color: var(--color-secondary);
+    background-color: transparent;
     cursor: pointer;
     transition: background-color 0.2s;
     vertical-align: middle;
@@ -104,10 +104,6 @@ button {
     cursor: pointer;
     transition: background-color 0.2s;
     vertical-align: middle;
-}
-
-button:hover:enabled {
-    background-color: var(--color-third);
 }
 
 .search-bar button {

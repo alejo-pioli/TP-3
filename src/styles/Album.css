@@ -40,10 +40,11 @@
 
 .song {
     display: flex;
-    padding: 0.35em 0.5em;
+    padding: 0.45em 0.5em;
     align-items: center;
     justify-content: space-between;
     gap: 1em;
+    line-height: normal;
 }
 .song:hover{
     background-color: var(--color-hover);
@@ -72,4 +73,11 @@
     font-size: 1em;
     font-weight: 600;
     color: var(--color-fourth);
+}
+
+.right-song {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    gap: 0.5em;
 }

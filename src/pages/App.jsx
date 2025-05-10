@@ -4,6 +4,7 @@ import SearchBar from '../components/SearchBar'
 import SearchResults from '../components/SearchResults'
 import { Link } from 'react-router-dom'
 import "../styles/App.css"
+import Favorites from '../components/Favorites'
 
 export default function App() {
   const CLIENT_ID = localStorage.getItem("id") || ""
@@ -13,8 +14,13 @@ export default function App() {
   const [artists, setArtists] = useState([])
   const [isLoading, setIslLoading] = useState(false);
 
+  const [showFavorites, setShowFavorites] = useState(false)
+  function showFavourites() {
+    setShowFavorites(!showFavorites)
+  }
+
   function requestToken() {
-    axios.post("https://accounts.spotify.com/api/token",
+    return axios.post("https://accounts.spotify.com/api/token",
       {
         grant_type: "client_credentials",
         client_id: CLIENT_ID,
@@ -51,10 +57,14 @@ export default function App() {
 
   return (
     <div>
-      <Link to={"/login"} className="button-text">Registrarse</Link>
+      <Favorites isVisible={showFavorites} showFavourites={showFavourites} requestToken={requestToken}></Favorites>
+      <div className="main-buttons">
+        <button className="button-text" onClick={showFavourites}>Favoritos</button>
+        <Link to={"/login"} className="button-text">Registrarse</Link>
+      </div>
       <h1 className="title">Buscar artista de Spotify</h1>
       <SearchBar searchArtist={searchArtist} isLoading={isLoading}></SearchBar>
-      <SearchResults artists={artists}></SearchResults>
+      <SearchResults artists={artists} isVisible={isVisible}></SearchResults>
     </div>
   )
 }
