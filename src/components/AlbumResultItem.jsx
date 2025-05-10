@@ -12,9 +12,10 @@ export default function AlbumResultItem({ album, id }) {
 
     return (
         <Link to={`/details/${id}/${album.id}`}>
-            <li key={album.id}>
-                <img width="100px" height="100px" src={url}></img>
-                {album.name}, {album.release_date.slice(0,4)}
+            <li key={album.id} className="album">
+                <img src={url}></img>
+                {album.name} 
+                <h3>{album.release_date.slice(0,4)}</h3>
             </li>
         </Link>
     )
