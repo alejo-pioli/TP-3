@@ -34,7 +34,7 @@
 .favorites {
     position: fixed;
     box-sizing: border-box;
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: var(--color-transparent);
     padding: 1em;
     position: fixed;
     top: 0;
