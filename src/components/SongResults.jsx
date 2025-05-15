@@ -6,7 +6,7 @@ export default function SongResults({ songs }) {
         <div>
             {songs ?
                 songs.length === 0 ?
-                    <div>No results found</div> :
+                    <div className="loader-container"><span className="loader"></span></div> :
                     <ol>
                         {songs.map((song, index) => {
                             return <SongResultItem song={song} key={song.id} index={index}></SongResultItem>

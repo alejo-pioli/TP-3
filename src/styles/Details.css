@@ -30,6 +30,12 @@
     margin-top: 2.2em;
 }
 
+@media (max-width:770px) {
+    #albums-container {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
 .album {
     display: block;
     font-size: 1.3em;

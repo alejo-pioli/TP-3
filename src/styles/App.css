@@ -51,14 +51,17 @@
         width: clamp(70vw, 90vw, 100vw);
     }
 
-    .favorites #artists-container {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
+    #artists-container {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
 
 .favorites h2 {
     margin-top: 0em;
-    margin-bottom: -0.75em;
+}
+
+.favorites #artists-container {
+    margin-top: 1em;
 }
 
 .close {
@@ -85,7 +88,7 @@
 }
 
 .favorite-songs {
-    margin-top: 2em;
+    margin-top: 0.75em;
     display: block;
     align-items: center;
 }
